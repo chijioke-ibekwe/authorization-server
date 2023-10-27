@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5431/auth-service
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  liquibase:
+    change-log: 'classpath:/db/changelog-master.yaml'
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+    com:
+      arthub:
+        authservice:
+          mapper: DEBUG
+          config: DEBUG
